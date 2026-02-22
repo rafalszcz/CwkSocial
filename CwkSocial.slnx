@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="Cwk.Domain/Cwk.Domain.csproj" Id="1e4ae8f3-6112-422f-bb8f-d639295d3a36" />
   <Project Path="CwkSocial.Api/CwkSocial.Api.csproj" />
+  <Project Path="CwkSocial.Application/CwkSocial.Application.csproj" Id="8c753631-0393-403f-affa-9427d266a236" />
+  <Project Path="CwkSocial.Dal/CwkSocial.Dal.csproj" Id="6770d41c-9cf7-48fc-a583-9313583615c1" />
 </Solution>
