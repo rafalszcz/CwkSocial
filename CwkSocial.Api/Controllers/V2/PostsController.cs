@@ -1,10 +1,13 @@
-﻿using Cwk.Domain.Models;
+﻿using Asp.Versioning;
+using Cwk.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CwkSocial.Api.Controllers.V2
 {
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    [Route("[controller]")]
+ 
     public class PostsController : Controller
     {
         [HttpGet]
@@ -20,4 +23,4 @@ namespace CwkSocial.Api.Controllers.V2
         }
     }
 }
-}
+
