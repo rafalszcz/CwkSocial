@@ -1,4 +1,5 @@
 using Asp.Versioning;
+using Asp.Versioning.ApiExplorer;
 using CwkSocial.Api.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,7 +35,14 @@ if (app.Environment.IsDevelopment())
 {
     // Register the Swagger JSON endpoint and the UI (Swashbuckle)
     app.UseSwagger();            // exposes /swagger/v1/swagger.json
-    app.UseSwaggerUI(options => { });          // interactive UI at /swagger
+    app.UseSwaggerUI(options => {
+     var provider=app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+        foreach(var descritption in provider.ApiVersionDescriptions)
+        {
+            options.SwaggerEndpoint($"/swagger/{descritption.GroupName}/swagger.json",
+                descritption.ApiVersion.ToString());
+        }
+    });          // interactive UI at /swagger
 }
 
 app.UseHttpsRedirection();
