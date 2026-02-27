@@ -6,12 +6,30 @@ namespace Cwk.Domain.Aggregates.PostAgregate
 {
     public class PostInteraction
     {
-        public Guid InteracionId { get; set; }
-        public Guid PostId { get; set; }
-        public Guid UserProfileId { get; set; }
-        public InteractionType InteractionType { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime LastModified { get; set; }
+        private PostInteraction()
+        {
+            
+        }
+        public Guid InteracionId { get;private  set; }
+        public Guid PostId { get; private set; }
+        public Guid UserProfileId { get; private set; }
+        public InteractionType InteractionType { get; private set; }
+        public DateTime CreatedDate { get; private set; }
+        public DateTime LastModified { get; private set; }
+        //Factory method to create a new interaction
+        public static PostInteraction CreatePostInteraction(Guid postId, Guid userProfileId, InteractionType interactionType)
+        {
+            //TO DO:add validation, errror handling strategies, error notification streategies
+            return new PostInteraction()
+            {
+                InteracionId = Guid.NewGuid(),
+                PostId = postId,
+                UserProfileId = userProfileId,
+                InteractionType = interactionType,
+                CreatedDate = DateTime.UtcNow,
+                LastModified = DateTime.UtcNow
+            };
+        }
 
     }
 }
