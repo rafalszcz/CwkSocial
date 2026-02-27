@@ -43,7 +43,8 @@ namespace Cwk.Domain.Aggregates.UserProfileAgregate
             string lastName,
             string emailAddress,
             string phone,
-            DateTime dateOfBirth)
+            DateTime dateOfBirth,
+            string currentCity)
         {
          
 
@@ -56,7 +57,8 @@ namespace Cwk.Domain.Aggregates.UserProfileAgregate
                 LastName = lastName.Trim(),
                 EmailAddress = string.IsNullOrWhiteSpace(emailAddress) ? null : emailAddress.Trim(),
                 Phone = string.IsNullOrWhiteSpace(phone) ? null : phone.Trim(),
-                DateOfBirth = dateOfBirth
+                DateOfBirth = dateOfBirth,
+                CurrentCity= string.IsNullOrWhiteSpace(currentCity) ? null : currentCity.Trim()
             };
         }
 
